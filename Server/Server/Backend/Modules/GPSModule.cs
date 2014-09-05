@@ -15,11 +15,11 @@ namespace Backend.Modules
     {
         private IGPSRepository repository;
 
-        public GPSModule() 
+        public GPSModule() : base("/gps")
         {
             this.repository = new GPSRepository(new GPSGateway(), new GPSDataFactory());
 
-            Get["/gps/{userID}/{latitude}/{longitude}"] = parameters =>
+            Get["/{userID}/{latitude}/{longitude}"] = parameters =>
             {
                 GPSData data = this.Bind<GPSData>();
 
@@ -39,7 +39,7 @@ namespace Backend.Modules
 
             };
 
-            Get["/gps/{userID}"] = parameters =>
+            Get["/{userID}"] = parameters =>
             {
                 string userID = parameters.userID;
                 GPSData gpsData = repository.GetGPSData(userID);
