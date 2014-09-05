@@ -14,7 +14,7 @@ namespace Backend.DataLayer
             return true;
         }
 
-        public string[] GetFromDatabase(string userID)
+        public string[] GetFromDatabase(string userID, DateTime fromDate)
         {
             return new string[] { "234", "344" };
         }
@@ -23,6 +23,6 @@ namespace Backend.DataLayer
     public interface IGPSGateway
     {
         bool InsertToDatabase(string userID, GPSData gpsData);
-        string[] GetFromDatabase(string userID);
+        string[] GetFromDatabase(string userID, DateTime fromDate);
     }
 }

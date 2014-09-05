@@ -30,9 +30,9 @@ namespace Backend.GPS.DataLayer
             return isSuccess;
         }
 
-        public GPSData GetGPSData(string userID)
+        public GPSData GetGPSData(string userID, DateTime fromDate)
         {
-            string[] rawData = gateway.GetFromDatabase(userID);
+            string[] rawData = gateway.GetFromDatabase(userID, fromDate);
             return factory.Instance(Double.Parse(rawData[0]), Double.Parse(rawData[1]));
         }
     }
@@ -40,7 +40,7 @@ namespace Backend.GPS.DataLayer
     public interface IGPSRepository
     {
         bool AddGPSData(string userID, GPSData data);
-        GPSData GetGPSData(string userID);
+        GPSData GetGPSData(string userID, DateTime fromDate);
     }
 
 }

@@ -39,15 +39,17 @@ namespace Backend.Modules
 
             };
 
-            Get["/{userID}"] = parameters =>
+            Get["/{userID}/{fromDate:int}"] = parameters =>
             {
                 string userID = parameters.userID;
-                GPSData gpsData = repository.GetGPSData(userID);
+                long dateTime = parameters.fromDate;
+                var dt = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).AddMilliseconds(dateTime);
+
+                GPSData gpsData = repository.GetGPSData(userID, dt);
                 return Negotiate
                     .WithStatusCode(HttpStatusCode.OK)
-                    .WithModel(gpsData);
+                    .WithModel(dt);
             };
         }
-
     }
 }
