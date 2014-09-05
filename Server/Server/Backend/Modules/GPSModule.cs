@@ -1,5 +1,6 @@
 ﻿using Backend.DataLayer;
 using Backend.GPS;
+using Backend.GPS.DataLayer;
 using Nancy;
 using Nancy.ModelBinding;
 using System;
@@ -12,25 +13,39 @@ namespace Backend.Modules
 {
     public class GPSModule : NancyModule
     {
+        private IGPSRepository repository;
+
         public GPSModule() 
         {
-            Get["/gps/{latitude}/{longitude}"] = parameters =>
+            this.repository = new GPSRepository(new GPSGateway(), new GPSDataFactory());
+
+            Get["/gps/{userID}/{latitude}/{longitude}"] = parameters =>
             {
-                var data = this.Bind<GPSData>();
-                var gpsData = new GPSData
+                GPSData data = this.Bind<GPSData>();
+
+                var isSuccess = repository.AddGPSData("dolan", data);
+
+                if (isSuccess)
                 {
-                    Longitude = data.Longitude,
-                    Latitude = data.Latitude
-                };
+                    return Negotiate
+                        .WithStatusCode(HttpStatusCode.OK)
+                        .WithModel(data);
+                }
+                else
+                {
+                    return Negotiate
+                        .WithStatusCode(HttpStatusCode.InternalServerError);
+                }
 
+            };
 
-                var dbLayer = new DatabaseLayer();
-                var result = dbLayer.InsertToDatabase("dolan", gpsData);
-
+            Get["/gps/{userID}"] = parameters =>
+            {
+                string userID = parameters.userID;
+                GPSData gpsData = repository.GetGPSData(userID);
                 return Negotiate
                     .WithStatusCode(HttpStatusCode.OK)
-                    .WithContentType("text/html")
-                    .WithModel(result);
+                    .WithModel(gpsData);
             };
         }
 
