@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="Bootstrappers\Bootstrapper.cs" />
     <Compile Include="Gateways\GPSGateway.cs" />
+    <Compile Include="Modules\GPSModule.cs" />
     <Compile Include="Repositories\GPSRepository.cs" />
     <Compile Include="Modules\AuthModule.cs" />
     <Compile Include="Modules\HomeModule.cs" />
