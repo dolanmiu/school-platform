@@ -1,6 +1,7 @@
 ﻿using Backend.DataLayer;
 using Backend.GPS;
 using Backend.GPS.DataLayer;
+using Backend.Repositories.GPSRepository;
 using Nancy;
 using Nancy.ModelBinding;
 using System;

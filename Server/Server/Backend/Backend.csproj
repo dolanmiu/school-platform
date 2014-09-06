@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="Bootstrappers\Bootstrapper.cs" />
     <Compile Include="GPS\DataLayer\GPSGateway.cs" />
+    <Compile Include="Modules\GPSModule.cs" />
     <Compile Include="Repositories\GPSRepository.cs" />
     <Compile Include="GPS\GPSData.cs" />
     <Compile Include="GPS\GPSDataFactory.cs" />
