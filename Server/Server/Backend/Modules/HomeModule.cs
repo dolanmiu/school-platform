@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Nancy;
-using Nancy.Authentication.Forms;
+﻿using Nancy;
 using Nancy.Security;
 
 namespace Backend.Modules
@@ -12,7 +7,7 @@ namespace Backend.Modules
     {
         public HomeModule()
         {
-            //this.RequiresAuthentication();
+            this.RequiresAuthentication();
 
             Get["/"] = _ =>
             {

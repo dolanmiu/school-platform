@@ -42,8 +42,8 @@
     <Reference Include="Nancy">
       <HintPath>..\packages\Nancy.0.23.2\lib\net40\Nancy.dll</HintPath>
     </Reference>
-    <Reference Include="Nancy.Authentication.Forms">
-      <HintPath>..\packages\Nancy.Authentication.Forms.0.23.2\lib\net40\Nancy.Authentication.Forms.dll</HintPath>
+    <Reference Include="Nancy.Authentication.Token">
+      <HintPath>..\packages\Nancy.Authentication.Token.0.23.2\lib\net40\Nancy.Authentication.Token.dll</HintPath>
     </Reference>
     <Reference Include="Nancy.Hosting.Aspnet">
       <HintPath>..\packages\Nancy.Hosting.Aspnet.0.23.2\lib\net40\Nancy.Hosting.Aspnet.dll</HintPath>
@@ -69,10 +69,17 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bootstrapper.cs" />
-    <Compile Include="FormsAuthenticationService.cs" />
+    <Compile Include="Bootstrappers\Bootstrapper.cs" />
+    <Compile Include="GPS\DataLayer\GPSGateway.cs" />
+    <Compile Include="Repositories\GPSRepository.cs" />
+    <Compile Include="GPS\GPSData.cs" />
+    <Compile Include="GPS\GPSDataFactory.cs" />
+    <Compile Include="Modules\AuthModule.cs" />
     <Compile Include="Modules\HomeModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="UserIdentity.cs" />
+    <Compile Include="UserValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -1,10 +1,8 @@
 ﻿using Backend.DataLayer;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using Backend.GPS;
 
-namespace Backend.GPS.DataLayer
+namespace Backend.Repositories.GPSRepository
 {
     public class GPSRepository : IGPSRepository
     {
