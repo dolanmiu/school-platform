@@ -1,4 +1,4 @@
-﻿namespace Backend.GPS
+﻿namespace Domain.GPS
 {
     public class GPSDataFactory : IGPSDataFactory
     {

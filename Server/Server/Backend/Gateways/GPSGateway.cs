@@ -1,10 +1,7 @@
-﻿using Backend.GPS;
+﻿using Domain.GPS;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
-namespace Backend.DataLayer
+namespace Backend.Gateways
 {
     public class GPSGateway : IGPSGateway
     {

@@ -1,6 +1,6 @@
-﻿using Backend.DataLayer;
-using System;
-using Backend.GPS;
+﻿using System;
+using Domain.GPS;
+using Backend.Gateways;
 
 namespace Backend.Repositories.GPSRepository
 {

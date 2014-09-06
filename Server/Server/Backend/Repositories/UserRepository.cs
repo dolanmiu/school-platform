@@ -1,4 +1,7 @@
-﻿namespace Backend.Repositories
+﻿using System;
+using System.Collections.Generic;
+
+namespace Backend.Repositories
 {
     public interface IUserRepository
     {
@@ -7,6 +10,11 @@
 
     public class UserRepository : IUserRepository
     {
-        //TODO: Implement
+        private List<Tuple<int, float>> _a;
+
+        public UserRepository()
+        {
+
+        }
     }
 }
