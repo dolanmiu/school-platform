@@ -1,13 +1,9 @@
-﻿using Backend.DataLayer;
-using Backend.GPS;
-using Backend.GPS.DataLayer;
+﻿using Backend.Repositories.GPSRepository;
 using Nancy;
 using Nancy.ModelBinding;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
+using Domain.GPS;
+using Backend.Gateways;
 
 namespace Backend.Modules
 {
