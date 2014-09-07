@@ -15,6 +15,11 @@ namespace WebClient.Modules.Parents
                 return "Welome Parent";
             };
 
+            Get["/GetStudents"] = parameters =>
+            {
+                return "List";
+            };
+
         }
     }
 }
