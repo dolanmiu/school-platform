@@ -18,7 +18,7 @@ namespace WebClient.Modules
 
             Get["/auth"] = parameters =>
             {
-                var client = new RestClient("https://euw.api.pvp.net");
+                /*var client = new RestClient("https://euw.api.pvp.net");
                 // client.Authenticator = new HttpBasicAuthenticator(username, password);
 
                 var request = new RestRequest("api/lol/euw/v1.2/champion?api_key=e511e298-0729-48e1-9f2c-20639de4741a", Method.GET);
@@ -29,9 +29,11 @@ namespace WebClient.Modules
                 //request.AddHeader("header", "value");
 
                 // add files to upload (works with compatible verbs)
-                //request.AddFile(path);
-
-                // execute the request
+                //request.AddFile(path);*/
+                var client = new RestClient("http://localhost:49840");
+                var request = new RestRequest("auth", Method.POST);
+                request.AddParameter("UserName", "Chris"); // adds to POST or URL querystring based on Method
+                request.AddParameter("Password", "chrisp123");
                 IRestResponse response = client.Execute(request);
                 var content = response.Content; // raw content as string
 
