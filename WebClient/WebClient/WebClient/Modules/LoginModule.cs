@@ -37,6 +37,11 @@ namespace WebClient.Modules
 
                 return content;
             };
+
+            Get["/foundation"] = parameters =>
+            {
+                return View["foundation"];
+            };
         }
     }
 }
