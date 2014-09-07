@@ -12,7 +12,7 @@ namespace WebClient.Modules.Parents
         {
             Get["/"] = parameters =>
             {
-                return "Welome Parent";
+                return View["/Parents/dashboard"];
             };
 
             Get["/GetStudents"] = parameters =>
