@@ -9,11 +9,10 @@ namespace Backend.Modules
 {
     public class GPSModule : NancyModule
     {
-        private IGPSRepository repository;
 
-        public GPSModule() : base("/gps")
+        public GPSModule(IGPSRepository repository) : base("/gps")
         {
-            this.repository = new GPSRepository(new GPSGateway(), new GPSDataFactory());
+            //this.repository = new GPSRepository(new GPSGateway(), new GPSDataFactory());
 
             Get["/{userID}/{latitude}/{longitude}"] = parameters =>
             {
