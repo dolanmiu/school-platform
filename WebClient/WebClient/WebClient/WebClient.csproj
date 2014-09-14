@@ -47,12 +47,20 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Nancy.Hosting.Aspnet.0.21.1\lib\net40\Nancy.Hosting.Aspnet.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.5\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="RestSharp">
       <HintPath>..\packages\RestSharp.104.4.0\lib\net4\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
   </ItemGroup>
@@ -85,26 +93,32 @@
     <Content Include="Content\js\vendor\placeholder.js" />
     <Content Include="Content\nancy-logo.png" />
     <Content Include="Views\foundation.html" />
+    <Content Include="Views\Parents\dashboard.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="Domain\StudentList.cs" />
+    <Compile Include="Domain\Factories\StudentFactory.cs" />
+    <Compile Include="Domain\GPSDataModel.cs" />
+    <Compile Include="Domain\StudentModel.cs" />
+    <Compile Include="Gateways\StudentGateway.cs" />
     <Compile Include="Modules\IndexModule.cs" />
     <Compile Include="Modules\LoginModule.cs" />
     <Compile Include="Modules\Parents\DashboardModule.cs" />
-    <Compile Include="Modules\Student\DashboardModule.cs" />
-    <Compile Include="Modules\Teacher\DashboardModule.cs" />
+    <Compile Include="Modules\Students\DashboardModule.cs" />
+    <Compile Include="Modules\Teachers\DashboardModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\StudentRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\index.sshtml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\login.sshtml" />
     <Content Include="Content\img\.gitkeep" />
-    <Content Include="Views\Parents\dashboard.html" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -138,6 +152,10 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
