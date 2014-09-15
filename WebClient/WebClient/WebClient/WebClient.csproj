@@ -109,6 +109,7 @@
     <Compile Include="Modules\IndexModule.cs" />
     <Compile Include="Modules\LoginModule.cs" />
     <Compile Include="Modules\Parents\DashboardModule.cs" />
+    <Compile Include="Modules\StudentProfileModule.cs" />
     <Compile Include="Modules\Students\DashboardModule.cs" />
     <Compile Include="Modules\Teachers\DashboardModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
