@@ -10,7 +10,7 @@ namespace WebClient.Gateways
         float[,] GetStudentGPSCoordinates(string studentID, float timestamp);
 
     }
-    public class GPSGateway
+    public class GPSGateway : IGPSGateway
     {
         public float[,] GetStudentGPSCoordinates(string studentID, float timestamp)
         {

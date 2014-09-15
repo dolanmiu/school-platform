@@ -8,7 +8,11 @@ using WebClient.Gateways;
 
 namespace WebClient.Repositories
 {
-    public class GPSRepository
+    public interface IGPSRepository
+    {
+        IList<GPSData> GetStudentGPSCoordinates(string studentID, long timestamp);
+    }
+    public class GPSRepository : IGPSRepository
     {
         private IGPSGateway gateway;
         private IGPSFactory factory;

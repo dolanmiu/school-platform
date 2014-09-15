@@ -9,7 +9,7 @@ namespace WebClient.Domain.Factories
     {
         GPSData Instance(float longitude, float latitude);
     }
-    public class GPSFactory
+    public class GPSFactory : IGPSFactory
     {
         public GPSData Instance(float longitude, float latitude)
         {
